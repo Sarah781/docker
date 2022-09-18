@@ -1,0 +1,8 @@
+ports:
+  - name: flask-app
+    port: 5555
+    onOpen: open-browser
+
+  - name: database
+    port: 5433
+    onOpen: open-browser
