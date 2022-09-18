@@ -1,0 +1,18 @@
+version: "3"
+
+services: # serviços que serão executados pelo docker compose
+  flask-app: # o nome do serviço é o nome do contêiner
+    build: . # constroi a imagem do Dockerfile do diretório atual
+    ports: 
+      - "5555:5555" # mapeia a porta 5555 do computador para a porta 5555 do contêiner
+    depends_on: 
+      - database # garante que o serviço database seja iniciado antes do serviço flask-app
+
+  database: # o nome do serviço é o nome do contêiner
+    image: postgres:10 # usa a imagem oficial do postgres na versão 10
+    environment: # define as variáveis ​​de ambiente
+      POSTGRES_USER: postgres # nome do usuário do banco de dados
+      POSTGRES_PASSWORD: postgres # senha do banco de dados
+      POSTGRES_DB: postgres # nome do banco de dados
+    ports: 
+       - "5433:5432" # mapeia a porta 5433 do computador para a porta 5432 do contêiner

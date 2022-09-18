@@ -1,0 +1,31 @@
+<html>
+    <head>
+	<title>Aplicação de Teste</title>
+    </head>
+    <body>
+	<form action="{{ request.path }}" method="post">
+	    Nome:<br><input type="text" name="name"><br>
+	    Cidade:<br><input type="text" name="city"><br>
+	    Endereço:<br><input type="text" name="addr"><br>
+	    <input type="submit" value="Salvar">
+	</form>
+	<table>
+	    <thead>
+		<tr>
+		    <th>Nome</th>
+		    <th>Cidade</th>
+		    <th>Endereço</th>
+		</tr>
+	    </thead>
+	    <tbody>
+	    {% for student in students %}
+		<tr>
+		    <td>{{ student.name }}</td>
+		    <td>{{ student.city }}</td>
+		    <td>{{ student.addr }}</td>
+		</tr>
+	    {% endfor %}
+	    </tbody>
+	</table>
+    </body>
+</html>
